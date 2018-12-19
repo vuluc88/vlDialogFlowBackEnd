@@ -1,15 +1,12 @@
-from flask import Flask
-from flask_restful import reqparse, abort, Api, Resource
-from examples import todo
+from settings import *
+from dialog_flow import dialog
 
-app = Flask(__name__)
-api = Api(app)
 
 ##
 ## setup the Api resource routing here
 ##
-api.add_resource(todo.TodoList, '/todos')
-api.add_resource(todo.Todo, '/todos/<string:todo_id>')
+api.add_resource(dialog.IntentsList, '/intents')
+api.add_resource(dialog.Intent, '/intents/<string:intent_id>')
 
 
 if __name__ == '__main__':
