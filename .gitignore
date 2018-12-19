@@ -1,4 +1,5 @@
 *.py[cod]
+vldialogflow-client-key.json
 env
 
 # C extensions
