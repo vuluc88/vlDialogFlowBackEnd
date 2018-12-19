@@ -6,8 +6,9 @@ import subprocess
 import requests
 
 parser = reqparse.RequestParser()
-output = subprocess.run("gcloud auth application-default print-access-token", shell=True, stdout=subprocess.PIPE, universal_newlines=False)
-gcloud_token = output.stdout.decode('utf-8').strip()
+#output = subprocess.run("gcloud auth application-default print-access-token", shell=True, stdout=subprocess.PIPE, universal_newlines=False)
+output = subprocess.check_output("gcloud auth application-default print-access-token", shell=True)
+gcloud_token = output.decode('utf-8').strip()
 headers = {'Authorization': 'Bearer %s' % gcloud_token}
 
 class Webhook(Resource):
